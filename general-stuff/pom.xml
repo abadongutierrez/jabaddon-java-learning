@@ -9,14 +9,14 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Java 11 Application</name>
+  <name>Java 17 Application</name>
   <inceptionYear>2020</inceptionYear>
   <organization>
     <name>Organization Name</name>
   </organization>
 
   <properties>
-    <java.version>17</java.version>
+    <java.version>19</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,6 +45,15 @@
       <version>3.3.0</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.24</version>
+      <scope>provided</scope>
+    </dependency>
+
   </dependencies>
 
   <!-- BUILD -->
@@ -101,7 +110,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.0</version>
         <configuration>
-          <release>11</release>
+          <release>17</release>
         </configuration>
       </plugin>
       <plugin>
