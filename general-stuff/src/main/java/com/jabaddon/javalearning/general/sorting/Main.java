@@ -14,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         List<MyClass> list = List.of(new MyClass(Priority.HIGH), new MyClass(Priority.MID), new MyClass(Priority.LOW));
-        List<MyClass> collect = list.stream().sorted(Comparator.comparing(MyClass::priority)).collect(Collectors.toList());
+        List<MyClass> collect = list.stream().sorted(Comparator.comparing(MyClass::priority)).toList();
         System.out.println(list);
         System.out.println(collect);
     }
