@@ -2,13 +2,15 @@ package com.jabaddon.learning.java.streams;
 
 import com.jabaddon.learning.java.utils.Employee;
 import com.jabaddon.learning.java.utils.ExperienceLevel;
+import com.jabaddon.learning.java.utils.JsonPrinter;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class GroupingByCollectorExample {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         List<Employee> employeeList = List.of(
                 new Employee("Jhon", 4, 4, "DevOps Engineer", ExperienceLevel.MID),
                 new Employee("Emma", 2, 2, "Fullstack Engineer", ExperienceLevel.JR),
@@ -20,5 +22,7 @@ public class GroupingByCollectorExample {
         Map<ExperienceLevel, List<Employee>> collect =
                 employeeList.stream().collect(Collectors.groupingBy(Employee::experienceLevel));
         System.out.println("collect = " + collect);
+        System.out.println(JsonPrinter.asPrettyJson(collect));
+
     }
 }
