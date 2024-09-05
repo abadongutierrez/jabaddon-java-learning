@@ -23,13 +23,25 @@
  * THE SOFTWARE.
  * =====LICENSE-END=====
  */
-package com.jabaddon.javalearning.general.javamemorymodel.example01;
+package com.jabaddon.javalearning.general.javamemorymodel.weak_references;
 
-public class SequencialExample {
+import java.lang.ref.WeakReference;
+
+public class WeakReferenceExample {
     public static void main(String[] args) {
-        MyRunnable runnable = new MyRunnable();
-        runnable.run();
-        runnable.run();
-        System.out.println("At the end, Count is " + runnable.getCount());
+        MyObject obj = new MyObject();
+        WeakReference<MyObject> weakRef = new WeakReference<>(obj);
+
+        // Clearing strong reference
+        obj = null; // At this point, MyObject is only referenced by weakRef
+
+        // Suggesting garbage collection
+        System.gc(); // MyObject may be collected
+        MyObject retrieved = weakRef.get(); // Will return null if collected
+        if (retrieved == null) {
+            System.out.println("MyObject has been garbage collected.");
+        } else {
+            System.out.println("MyObject is still alive.");
+        }
     }
 }
