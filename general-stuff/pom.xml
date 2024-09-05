@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Java 17 Application</name>
+  <name>Java Application</name>
   <inceptionYear>2020</inceptionYear>
   <organization>
     <name>Organization Name</name>
@@ -149,10 +149,10 @@
               <processEndTag>=====LICENSE-END=====</processEndTag>
               <processStartTag>=====LICENSE-START=====</processStartTag>
               <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-              <roots>
+              <!-- <roots>
                 <root>src/main/java</root>
                 <root>src/test</root>
-              </roots>
+              </roots> -->
             </configuration>
           </execution>
         </executions>
