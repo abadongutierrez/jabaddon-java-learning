@@ -1,6 +1,6 @@
 /*-
  * =====LICENSE-START=====
- * Java 17 Application
+ * Java Application
  * ------
  * Copyright (C) 2020 - 2024 Organization Name
  * ------
@@ -23,13 +23,17 @@
  * THE SOFTWARE.
  * =====LICENSE-END=====
  */
-package com.jabaddon.javalearning.general.shadowing.instatic;
+package com.jabaddon.javalearning.general.shadowing.in_properties;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println(Parent.CONSTANT);
-        System.out.println(Child.CONSTANT);
-        Child.printConstant();
-        Child.printParentConstant();
+public class Child extends Parent {
+    private final String name = "Child";
+
+    public String getName() {
+        return name;
     }
+
+    public String getParentName() {
+        return super.getName();
+    }
+
 }
