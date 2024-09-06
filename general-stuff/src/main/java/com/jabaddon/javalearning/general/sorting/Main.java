@@ -2,7 +2,6 @@ package com.jabaddon.javalearning.general.sorting;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Main {
     private enum Priority {
