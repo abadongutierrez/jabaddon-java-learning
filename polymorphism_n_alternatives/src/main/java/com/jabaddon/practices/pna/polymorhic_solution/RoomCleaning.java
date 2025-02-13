@@ -2,13 +2,15 @@ package com.jabaddon.practices.pna.polymorhic_solution;
 
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class RoomCleaning implements Service {
 
     private Instant startedAt;
     private final Set<String> agreedRooms;
-    private Set<String> roomCleaned = new HashSet<>();
+    private final Set<String> roomCleaned = new HashSet<>();
     private Instant endedAt;
 
     public RoomCleaning(Set<String> agreedRooms) {
@@ -27,7 +29,7 @@ public class RoomCleaning implements Service {
 
     @Override
     public boolean wasServicePerformed() {
-        return isAllAgreedRoomsCleaned();
+        return Stream.of(startedAt, endedAt).allMatch(Objects::nonNull) && isAllAgreedRoomsCleaned();
     }
 
     private boolean isAllAgreedRoomsCleaned() {

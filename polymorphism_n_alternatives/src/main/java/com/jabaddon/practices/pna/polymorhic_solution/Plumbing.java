@@ -2,6 +2,7 @@ package com.jabaddon.practices.pna.polymorhic_solution;
 
 import java.time.Instant;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Plumbing implements Service {
     private Instant startedAt;
@@ -23,6 +24,6 @@ public class Plumbing implements Service {
 
     @Override
     public boolean wasServicePerformed() {
-        return Objects.nonNull(startedAt) && Objects.nonNull(completedAt) && Objects.nonNull(confirmedAt);
+        return Stream.of(startedAt, completedAt, confirmedAt).allMatch(Objects::nonNull);
     }
 }

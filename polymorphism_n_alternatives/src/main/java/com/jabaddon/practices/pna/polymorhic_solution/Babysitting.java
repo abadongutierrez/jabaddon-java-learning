@@ -3,6 +3,7 @@ package com.jabaddon.practices.pna.polymorhic_solution;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Babysitting implements Service {
     private Instant startedAt;
@@ -24,7 +25,7 @@ public class Babysitting implements Service {
 
     @Override
     public boolean wasServicePerformed() {
-        if (Objects.isNull(startedAt) || Objects.isNull(endedAt)) return false;
+        if (Stream.of(startedAt, endedAt).anyMatch(Objects::isNull)) return false;
         return Duration.between(startedAt, endedAt).toHours() >= agreedHours;
     }
 }
