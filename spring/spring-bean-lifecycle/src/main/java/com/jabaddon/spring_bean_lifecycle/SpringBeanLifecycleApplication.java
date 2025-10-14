@@ -8,6 +8,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class SpringBeanLifecycleApplication {
 
 	public static void main(String[] args) {
+		System.out.println("╔════════════════════════════════════════╗");
+		System.out.println("║  SPRING BEAN LIFECYCLE DEMONSTRATION   ║");
+		System.out.println("╚════════════════════════════════════════╝\n");
+
 		System.out.println("========================================");
 		System.out.println("🚀 STARTING SPRING CONTEXT");
 		System.out.println("========================================\n");
@@ -19,9 +23,13 @@ public class SpringBeanLifecycleApplication {
 		System.out.println("✅ CONTEXT FULLY STARTED");
 		System.out.println("========================================\n");
 
-		// Get the bean and use it
+		// Demo 1: Bean lifecycle
+		System.out.println("📌 DEMO 1: Bean Lifecycle Phases\n");
 		MyBean myBean = context.getBean(MyBean.class);
 		myBean.doSomething();
+
+		// Note: Circular dependency demo runs automatically via @PostConstruct
+		// See CircularDependencyDemo class
 
 		System.out.println("\n========================================");
 		System.out.println("🛑 CLOSING SPRING CONTEXT");
